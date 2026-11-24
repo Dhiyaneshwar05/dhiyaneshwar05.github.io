@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dhiyaneshwar G, Forward Deployed Engineer at DevRev. Projects, experience, and writing.">
+  <meta name="theme-color" content="#680d1a">
+  <title>Dhiyaneshwar G.</title>
+  <style>
+    @font-face {
+      font-family: 'Instrument Serif';
+      src: url('fonts/instrument-serif.woff2') format('woff2');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Instrument Serif';
+      src: url('fonts/instrument-serif-italic.woff2') format('woff2');
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'DM Sans';
+      src: url('fonts/dm-sans.woff2') format('woff2');
+      font-weight: 400 700;
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: dark;
+      --wine: #680d1a;
+      --cream: #fff0dc;
+      --muted: #f0c9bd;
+      --line: #f6d9c85c;
+      --serif: 'Instrument Serif', Georgia, serif;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: var(--cream);
+      background: var(--wine);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; }
+    h1, h2, h3, p, figure { margin: 0; }
+    a { color: inherit; text-underline-offset: .24em; }
+    button { font: inherit; }
+    :focus-visible { outline: 2px solid var(--cream); outline-offset: 4px; }
+    .wrap { width: min(68rem, calc(100% - 6rem)); margin-inline: auto; }
+    .skip {
+      position: absolute;
+      inset: .75rem auto auto .75rem;
+      z-index: 2;
+      padding: .6rem .85rem;
+      transform: translateY(-200%);
+      background: var(--cream);
+      color: var(--wine);
+    }
+    .skip:focus { transform: none; }
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .65rem 1rem;
+      padding-block: 1.05rem;
+      border-bottom: 1px solid var(--line);
+      font-size: .875rem;
+    }
+    .location { color: var(--muted); }
+    .links { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; }
+    .links a { font-weight: 600; text-decoration: none; }
+    .links a:hover { text-decoration: underline; }
+
+    .intro { padding-block: clamp(2rem, 4.15vw, 4rem) clamp(1.75rem, 3.4vw, 3rem); }
+    h1 {
+      font: 400 clamp(4rem, 10.3vw, 9.75rem)/.88 var(--serif);
+      letter-spacing: -.037em;
+    }
+    h1 em { font-weight: 400; }
+    .intro-copy {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+      gap: .45rem 2rem;
+      margin-top: 1.2rem;
+    }
+    .role { color: var(--cream); font-size: 1rem; font-weight: 650; }
+    .bio { max-width: 46ch; color: var(--muted); line-height: 1.48; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 clamp(1rem, 3.1vw, 2.4rem);
+      border-bottom: 1px solid var(--line);
+    }
+    .tabs button {
+      min-height: 2.65rem;
+      margin-bottom: -1px;
+      padding: .6rem .06rem .63rem;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+      font-size: .925rem;
+    }
+    .tabs button:hover, .tabs button[aria-selected='true'] { color: var(--cream); }
+    .tabs button[aria-selected='true'] { border-bottom-color: var(--cream); font-weight: 650; }
+    .panel { padding-block: 1rem 2.75rem; }
+    .project-spread, .journey-spread {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+      align-items: start;
+      gap: 1.1rem 2rem;
+    }
+    .project-list { list-style: none; margin: 0; padding: 0; }
+    .project-list li + li { border-top: 1px solid var(--line); }
+    .project-link { display: block; padding: .68rem 0 .8rem; text-decoration: none; }
+    .project-list li:first-child .project-link { padding-top: .15rem; }
+    .project-link h2 { font: 400 2.05rem/1.08 var(--serif); }
+    .project-link p { margin-top: .26rem; color: var(--muted); line-height: 1.4; }
+    .project-link:hover h2, .story:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; }
+    .feature { min-width: 0; }
+    .feature a { display: block; }
+    .feature img {
+      display: block;
+      width: 100%;
+      max-height: 15rem;
+      object-fit: cover;
+      object-position: 50% 53%;
+    }
+    .feature figcaption { margin-top: .42rem; color: var(--muted); font-size: .875rem; }
+
+    .route {
+      position: relative;
+      min-height: 11rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-bottom: 1px solid var(--line);
+      background: repeating-linear-gradient(0deg, transparent 0 1.49rem, #fff0dc14 1.5rem 1.55rem);
+    }
+    .route::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--muted);
+      clip-path: polygon(16% 36%, 50% 56%, 83% 30%, 83% 31%, 50% 57%, 16% 37%);
+    }
+    .route li { position: absolute; left: var(--x); top: var(--y); width: 31%; transform: translate(-50%, -.55rem); }
+    .route .bengaluru { --x: 16%; --y: 36%; }
+    .route .vellore { --x: 50%; --y: 56%; }
+    .route .chennai { --x: 83%; --y: 30%; }
+    .stop {
+      display: grid;
+      justify-items: center;
+      gap: .3rem;
+      width: 100%;
+      padding: .18rem 0;
+      border: 0;
+      color: var(--cream);
+      background: transparent;
+      cursor: pointer;
+      font-weight: 650;
+    }
+    .stop::before { content: ''; width: .85rem; height: .85rem; border: 1px solid var(--cream); border-radius: 50%; background: var(--wine); }
+    .stop:hover::before, .stop[aria-pressed='true']::before { background: var(--cream); }
+    .stop[aria-pressed='true'] .stop-name { text-decoration: underline; text-underline-offset: .2em; }
+    .city, .date { color: var(--muted); font-size: .875rem; font-weight: 400; }
+    .journey-entry h2, .story h2 { margin: .22rem 0 .4rem; font: 400 2rem/1.1 var(--serif); }
+    .journey-entry .detail { color: var(--muted); line-height: 1.5; }
+    .story { display: block; width: min(100%, 39rem); padding: .25rem 0 1rem; text-decoration: none; }
+    .story .date { margin-bottom: .4rem; }
+    .story + .story { padding-top: .75rem; border-top: 1px solid var(--line); }
+    .story p:not(.date), .compact-list dd, .contact p { color: var(--muted); line-height: 1.5; }
+    .compact-list { width: min(100%, 43rem); margin: 0; }
+    .compact-list > div { padding-block: .62rem; }
+    .compact-list > div:first-child { padding-top: .2rem; }
+    .compact-list > div + div { border-top: 1px solid var(--line); }
+    .compact-list dt { font: 400 1.7rem/1.05 var(--serif); }
+    .compact-list dd { margin: .28rem 0 0; }
+    .contact a { color: var(--cream); }
+
+    @media (max-width: 44rem) {
+      .wrap { width: calc(100% - 2.5rem); }
+      .intro-copy, .project-spread, .journey-spread { grid-template-columns: 1fr; }
+      .intro { padding-block: 2.4rem 1.4rem; }
+      h1 { font-size: clamp(3.25rem, 12.1vw, 5.8rem); }
+      .bio { max-width: 52ch; }
+      .feature img { max-height: 12.5rem; }
+    }
+    @media (max-width: 24rem) {
+      .wrap { width: calc(100% - 2rem); }
+      .links { gap: .3rem .8rem; }
+      .tabs { column-gap: 1.05rem; }
+      h1 { font-size: clamp(2.85rem, 12.5vw, 3.5rem); }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#work">Skip to work</a>
+  <header class="masthead wrap">
+    <p class="location">Bengaluru, India</p>
+    <nav class="links" aria-label="Find me online">
+      <a href="https://github.com/Dhiyaneshwar05">GitHub</a>
+      <a href="https://www.linkedin.com/in/dhiyanesh-g/">LinkedIn</a>
+    </nav>
+  </header>
+
+  <main class="wrap" id="work" tabindex="-1">
+    <div class="intro">
+      <h1>Dhiyaneshwar <em>G.</em></h1>
+      <div class="intro-copy">
+        <p class="role">Forward Deployed Engineer at DevRev</p>
+        <p class="bio">I build AI agents that can take action across real systems, and write evals to see where those workflows break.</p>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Portfolio sections">
+      <button type="button" role="tab" id="tab-projects" aria-controls="projects" aria-selected="true">Projects</button>
+      <button type="button" role="tab" id="tab-journey" aria-controls="journey" aria-selected="false" tabindex="-1">Journey</button>
+      <button type="button" role="tab" id="tab-writing" aria-controls="writing" aria-selected="false" tabindex="-1">Writing</button>
+      <button type="button" role="tab" id="tab-skills" aria-controls="skills" aria-selected="false" tabindex="-1">Skills</button>
+      <button type="button" role="tab" id="tab-research" aria-controls="research" aria-selected="false" tabindex="-1">Research</button>
+      <button type="button" role="tab" id="tab-certifications" aria-controls="certifications" aria-selected="false" tabindex="-1">Certifications</button>
+      <button type="button" role="tab" id="tab-contact" aria-controls="contact" aria-selected="false" tabindex="-1">Contact</button>
+    </div>
+
+    <section class="panel" id="projects" role="tabpanel" aria-labelledby="tab-projects">
+      <div class="project-spread">
+        <ul class="project-list">
+          <li><a class="project-link" href="https://github.com/Dhiyaneshwar05/claude-deck">
+            <h2>claude-deck</h2>
+            <p>One window for Claude Code sessions across editors and terminals.</p>
+          </a></li>
+          <li><a class="project-link" href="https://github.com/Dhiyaneshwar05/ritual">
+            <h2>Ritual</h2>
+            <p>A Mac app for habits and tasks. Every check-in adds a piece to a monument.</p>
+          </a></li>
+          <li><a class="project-link" href="https://github.com/Dhiyaneshwar05/jobclip">
+            <h2>jobclip</h2>
+            <p>Save a job posting to Google Sheets in one click.</p>
+          </a></li>
+        </ul>
+        <figure class="feature">
+          <a href="https://github.com/Dhiyaneshwar05/ritual"><img src="assets/ritual-journey.webp" width="1120" height="700" alt="Ritual for macOS showing a monument built from habit check-ins"></a>
+          <figcaption>Ritual for macOS · A habit’s progress in the Journey view</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="panel" id="journey" role="tabpanel" aria-labelledby="tab-journey" hidden>
+      <div class="journey-spread">
+        <ol class="route" aria-label="Experience and education by city">
+          <li class="vellore"><button class="stop" type="button" aria-pressed="false" aria-controls="stop-vit"><span class="stop-name">VIT</span><span class="city">Vellore</span></button></li>
+          <li class="chennai"><button class="stop" type="button" aria-pressed="false" aria-controls="stop-nokia"><span class="stop-name">Nokia</span><span class="city">Chennai</span></button></li>
+          <li class="bengaluru"><button class="stop" type="button" aria-pressed="true" aria-controls="stop-devrev"><span class="stop-name">DevRev</span><span class="city">Bengaluru</span></button></li>
+        </ol>
+        <div>
+          <article class="journey-entry" id="stop-vit" hidden>
+            <p class="date">2019–2024</p>
+            <h2>Vellore Institute of Technology</h2>
+            <p class="detail">Integrated M.Tech in Computer Science, specializing in Data Science.</p>
+          </article>
+          <article class="journey-entry" id="stop-nokia" hidden>
+            <p class="date">Aug 2023–May 2024</p>
+            <h2>Nokia · R&amp;D software engineering intern</h2>
+            <p class="detail">Built Python automation and prototyped retrieval-augmented tooling.</p>
+          </article>
+          <article class="journey-entry" id="stop-devrev">
+            <p class="date">Nov 2024–present</p>
+            <h2>DevRev · Forward Deployed Engineer</h2>
+            <p class="detail">Build and deploy AI agents with customer teams. Work across tool integrations, workflow reliability, and evals before rollout.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="writing" role="tabpanel" aria-labelledby="tab-writing" hidden>
+      <a class="story" href="https://medium.com/@dhiyanu/riding-the-wave-of-generative-ai-navigating-collaboration-innovation-and-the-future-72f41212630f">
+        <p class="date"><time datetime="2024-05-24">May 24, 2024</time> · Medium</p>
+        <h2>Riding the Wave of Generative AI, LLMs: Navigating Collaboration, Innovation, and the Future</h2>
+      </a>
+      <a class="story" href="https://in.linkedin.com/in/dhiyanesh-g">
+        <p class="date">LinkedIn</p>
+        <h2>Posts and updates</h2>
+        <p>Short updates on applied AI and my work at DevRev.</p>
+      </a>
+    </section>
+
+    <section class="panel" id="skills" role="tabpanel" aria-labelledby="tab-skills" hidden>
+      <dl class="compact-list">
+        <div><dt>AI agents</dt><dd>Agent harnesses, tool calling, MCP, and multi-step workflows.</dd></div>
+        <div><dt>Evaluation and retrieval</dt><dd>Multi-turn evals, LLM-as-judge, and retrieval-augmented generation.</dd></div>
+        <div><dt>Development</dt><dd>Python, SQL, TypeScript, FastAPI, Docker, and AWS Bedrock.</dd></div>
+      </dl>
+    </section>
+
+    <section class="panel" id="research" role="tabpanel" aria-labelledby="tab-research" hidden>
+      <dl class="compact-list">
+        <div><dt>Coding agent harnesses</dt><dd>Explored how editors and terminals expose session events while planning claude-deck.</dd></div>
+        <div><dt>Agent evals</dt><dd>Exploring how to test tool choices and outcomes across a whole conversation.</dd></div>
+      </dl>
+    </section>
+
+    <section class="panel" id="certifications" role="tabpanel" aria-labelledby="tab-certifications" hidden>
+      <dl class="compact-list">
+        <div><dt>Machine Learning Specialization</dt><dd>Stanford Online · Coursera</dd></div>
+        <div><dt>Google Data Analytics</dt><dd>Google · Coursera</dd></div>
+        <div><dt>OCI Generative AI Certified Professional</dt><dd>Oracle · Issued July 2024, expired July 2026</dd></div>
+      </dl>
+    </section>
+
+    <section class="panel contact" id="contact" role="tabpanel" aria-labelledby="tab-contact" hidden>
+      <p>For work or collaborations, <a href="https://www.linkedin.com/in/dhiyanesh-g/">reach me on LinkedIn</a>.</p>
+    </section>
+  </main>
+
+  <script>
+    const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+    const stops = Array.from(document.querySelectorAll('.stop'));
+
+    function selectTab(tab) {
+      for (const item of tabs) {
+        const selected = item === tab;
+        item.setAttribute('aria-selected', selected);
+        item.tabIndex = selected ? 0 : -1;
+        document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+      }
+    }
+
+    function openTab(tab) {
+      const hash = '#' + tab.getAttribute('aria-controls');
+      if (location.hash !== hash) history.pushState(null, '', hash);
+      selectTab(tab);
+    }
+
+    function restoreTab() {
+      const panel = location.hash.slice(1);
+      selectTab(tabs.find((tab) => tab.getAttribute('aria-controls') === panel) || tabs[0]);
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => openTab(tab));
+      tab.addEventListener('keydown', (event) => {
+        const destinations = {
+          ArrowRight: (index + 1) % tabs.length,
+          ArrowLeft: (index + tabs.length - 1) % tabs.length,
+          Home: 0,
+          End: tabs.length - 1
+        };
+        if (!Object.hasOwn(destinations, event.key)) return;
+        event.preventDefault();
+        const next = tabs[destinations[event.key]];
+        openTab(next);
+        next.focus();
+      });
+    });
+
+    stops.forEach((stop) => {
+      stop.addEventListener('click', () => {
+        for (const item of stops) {
+          const selected = item === stop;
+          item.setAttribute('aria-pressed', selected);
+          document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+        }
+      });
+    });
+
+    window.addEventListener('hashchange', restoreTab);
+    restoreTab();
+  </script>
+</body>
+</html>
