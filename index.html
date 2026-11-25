@@ -3,368 +3,170 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Dhiyaneshwar G, Forward Deployed Engineer at DevRev. Projects, experience, and writing.">
-  <meta name="theme-color" content="#680d1a">
-  <title>Dhiyaneshwar G.</title>
-  <style>
-    @font-face {
-      font-family: 'Instrument Serif';
-      src: url('fonts/instrument-serif.woff2') format('woff2');
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Instrument Serif';
-      src: url('fonts/instrument-serif-italic.woff2') format('woff2');
-      font-style: italic;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'DM Sans';
-      src: url('fonts/dm-sans.woff2') format('woff2');
-      font-weight: 400 700;
-      font-display: swap;
-    }
-
-    :root {
-      color-scheme: dark;
-      --wine: #680d1a;
-      --cream: #fff0dc;
-      --muted: #f0c9bd;
-      --line: #f6d9c85c;
-      --serif: 'Instrument Serif', Georgia, serif;
-      font-family: 'DM Sans', system-ui, sans-serif;
-      color: var(--cream);
-      background: var(--wine);
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    [hidden] { display: none !important; }
-    body { margin: 0; }
-    h1, h2, h3, p, figure { margin: 0; }
-    a { color: inherit; text-underline-offset: .24em; }
-    button { font: inherit; }
-    :focus-visible { outline: 2px solid var(--cream); outline-offset: 4px; }
-    .wrap { width: min(68rem, calc(100% - 6rem)); margin-inline: auto; }
-    .skip {
-      position: absolute;
-      inset: .75rem auto auto .75rem;
-      z-index: 2;
-      padding: .6rem .85rem;
-      transform: translateY(-200%);
-      background: var(--cream);
-      color: var(--wine);
-    }
-    .skip:focus { transform: none; }
-    .masthead {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: .65rem 1rem;
-      padding-block: 1.05rem;
-      border-bottom: 1px solid var(--line);
-      font-size: .875rem;
-    }
-    .location { color: var(--muted); }
-    .links { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; }
-    .links a { font-weight: 600; text-decoration: none; }
-    .links a:hover { text-decoration: underline; }
-
-    .intro { padding-block: clamp(2rem, 4.15vw, 4rem) clamp(1.75rem, 3.4vw, 3rem); }
-    h1 {
-      font: 400 clamp(4rem, 10.3vw, 9.75rem)/.88 var(--serif);
-      letter-spacing: -.037em;
-    }
-    h1 em { font-weight: 400; }
-    .intro-copy {
-      display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
-      gap: .45rem 2rem;
-      margin-top: 1.2rem;
-    }
-    .role { color: var(--cream); font-size: 1rem; font-weight: 650; }
-    .bio { max-width: 46ch; color: var(--muted); line-height: 1.48; }
-
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0 clamp(1rem, 3.1vw, 2.4rem);
-      border-bottom: 1px solid var(--line);
-    }
-    .tabs button {
-      min-height: 2.65rem;
-      margin-bottom: -1px;
-      padding: .6rem .06rem .63rem;
-      border: 0;
-      border-bottom: 2px solid transparent;
-      color: var(--muted);
-      background: transparent;
-      cursor: pointer;
-      font-size: .925rem;
-    }
-    .tabs button:hover, .tabs button[aria-selected='true'] { color: var(--cream); }
-    .tabs button[aria-selected='true'] { border-bottom-color: var(--cream); font-weight: 650; }
-    .panel { padding-block: 1rem 2.75rem; }
-    .project-spread, .journey-spread {
-      display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
-      align-items: start;
-      gap: 1.1rem 2rem;
-    }
-    .project-list { list-style: none; margin: 0; padding: 0; }
-    .project-list li + li { border-top: 1px solid var(--line); }
-    .project-link { display: block; padding: .68rem 0 .8rem; text-decoration: none; }
-    .project-list li:first-child .project-link { padding-top: .15rem; }
-    .project-link h2 { font: 400 2.05rem/1.08 var(--serif); }
-    .project-link p { margin-top: .26rem; color: var(--muted); line-height: 1.4; }
-    .project-link:hover h2, .story:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; }
-    .feature { min-width: 0; }
-    .feature a { display: block; }
-    .feature img {
-      display: block;
-      width: 100%;
-      max-height: 15rem;
-      object-fit: cover;
-      object-position: 50% 53%;
-    }
-    .feature figcaption { margin-top: .42rem; color: var(--muted); font-size: .875rem; }
-
-    .route {
-      position: relative;
-      min-height: 11rem;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      border-bottom: 1px solid var(--line);
-      background: repeating-linear-gradient(0deg, transparent 0 1.49rem, #fff0dc14 1.5rem 1.55rem);
-    }
-    .route::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--muted);
-      clip-path: polygon(16% 36%, 50% 56%, 83% 30%, 83% 31%, 50% 57%, 16% 37%);
-    }
-    .route li { position: absolute; left: var(--x); top: var(--y); width: 31%; transform: translate(-50%, -.55rem); }
-    .route .bengaluru { --x: 16%; --y: 36%; }
-    .route .vellore { --x: 50%; --y: 56%; }
-    .route .chennai { --x: 83%; --y: 30%; }
-    .stop {
-      display: grid;
-      justify-items: center;
-      gap: .3rem;
-      width: 100%;
-      padding: .18rem 0;
-      border: 0;
-      color: var(--cream);
-      background: transparent;
-      cursor: pointer;
-      font-weight: 650;
-    }
-    .stop::before { content: ''; width: .85rem; height: .85rem; border: 1px solid var(--cream); border-radius: 50%; background: var(--wine); }
-    .stop:hover::before, .stop[aria-pressed='true']::before { background: var(--cream); }
-    .stop[aria-pressed='true'] .stop-name { text-decoration: underline; text-underline-offset: .2em; }
-    .city, .date { color: var(--muted); font-size: .875rem; font-weight: 400; }
-    .journey-entry h2, .story h2 { margin: .22rem 0 .4rem; font: 400 2rem/1.1 var(--serif); }
-    .journey-entry .detail { color: var(--muted); line-height: 1.5; }
-    .story { display: block; width: min(100%, 39rem); padding: .25rem 0 1rem; text-decoration: none; }
-    .story .date { margin-bottom: .4rem; }
-    .story + .story { padding-top: .75rem; border-top: 1px solid var(--line); }
-    .story p:not(.date), .compact-list dd, .contact p { color: var(--muted); line-height: 1.5; }
-    .compact-list { width: min(100%, 43rem); margin: 0; }
-    .compact-list > div { padding-block: .62rem; }
-    .compact-list > div:first-child { padding-top: .2rem; }
-    .compact-list > div + div { border-top: 1px solid var(--line); }
-    .compact-list dt { font: 400 1.7rem/1.05 var(--serif); }
-    .compact-list dd { margin: .28rem 0 0; }
-    .contact a { color: var(--cream); }
-
-    @media (max-width: 44rem) {
-      .wrap { width: calc(100% - 2.5rem); }
-      .intro-copy, .project-spread, .journey-spread { grid-template-columns: 1fr; }
-      .intro { padding-block: 2.4rem 1.4rem; }
-      h1 { font-size: clamp(3.25rem, 12.1vw, 5.8rem); }
-      .bio { max-width: 52ch; }
-      .feature img { max-height: 12.5rem; }
-    }
-    @media (max-width: 24rem) {
-      .wrap { width: calc(100% - 2rem); }
-      .links { gap: .3rem .8rem; }
-      .tabs { column-gap: 1.05rem; }
-      h1 { font-size: clamp(2.85rem, 12.5vw, 3.5rem); }
-    }
-  </style>
+  <meta name="description" content="Dhiyaneshwar G., Forward Deployed Engineer at DevRev. AI agents, evals, and side projects.">
+  <link rel="alternate" type="text/plain" href="llms.txt" title="Portfolio for LLMs">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="paperback.css">
+  <title>Dhiyaneshwar G. — Portfolio</title>
 </head>
-<body>
-  <a class="skip" href="#work">Skip to work</a>
-  <header class="masthead wrap">
-    <p class="location">Bengaluru, India</p>
-    <nav class="links" aria-label="Find me online">
-      <a href="https://github.com/Dhiyaneshwar05">GitHub</a>
-      <a href="https://www.linkedin.com/in/dhiyanesh-g/">LinkedIn</a>
-    </nav>
+<body class="paperback">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="masthead">
+    <div class="wrap bar">
+      <a class="signature" href="#top" aria-label="Dhiyaneshwar G., back to top">DG.</a>
+      <nav class="sections" aria-label="Sections">
+        <a href="#work">Projects</a><a href="#journey">Journey</a><a href="#research">Practice</a><a href="#writing">Writing</a>
+      </nav>
+      <nav class="view" aria-label="Portfolio view">
+        <a href="./" aria-current="page">Human</a><a href="agent.html">Agent</a>
+      </nav>
+    </div>
   </header>
-
-  <main class="wrap" id="work" tabindex="-1">
-    <div class="intro">
-      <h1>Dhiyaneshwar <em>G.</em></h1>
-      <div class="intro-copy">
-        <p class="role">Forward Deployed Engineer at DevRev</p>
-        <p class="bio">I build AI agents that can take action across real systems, and write evals to see where those workflows break.</p>
-      </div>
-    </div>
-
-    <div class="tabs" role="tablist" aria-label="Portfolio sections">
-      <button type="button" role="tab" id="tab-projects" aria-controls="projects" aria-selected="true">Projects</button>
-      <button type="button" role="tab" id="tab-journey" aria-controls="journey" aria-selected="false" tabindex="-1">Journey</button>
-      <button type="button" role="tab" id="tab-writing" aria-controls="writing" aria-selected="false" tabindex="-1">Writing</button>
-      <button type="button" role="tab" id="tab-skills" aria-controls="skills" aria-selected="false" tabindex="-1">Skills</button>
-      <button type="button" role="tab" id="tab-research" aria-controls="research" aria-selected="false" tabindex="-1">Research</button>
-      <button type="button" role="tab" id="tab-certifications" aria-controls="certifications" aria-selected="false" tabindex="-1">Certifications</button>
-      <button type="button" role="tab" id="tab-contact" aria-controls="contact" aria-selected="false" tabindex="-1">Contact</button>
-    </div>
-
-    <section class="panel" id="projects" role="tabpanel" aria-labelledby="tab-projects">
-      <div class="project-spread">
-        <ul class="project-list">
-          <li><a class="project-link" href="https://github.com/Dhiyaneshwar05/claude-deck">
-            <h2>claude-deck</h2>
-            <p>One window for Claude Code sessions across editors and terminals.</p>
-          </a></li>
-          <li><a class="project-link" href="https://github.com/Dhiyaneshwar05/ritual">
-            <h2>Ritual</h2>
-            <p>A Mac app for habits and tasks. Every check-in adds a piece to a monument.</p>
-          </a></li>
-          <li><a class="project-link" href="https://github.com/Dhiyaneshwar05/jobclip">
-            <h2>jobclip</h2>
-            <p>Save a job posting to Google Sheets in one click.</p>
-          </a></li>
-        </ul>
-        <figure class="feature">
-          <a href="https://github.com/Dhiyaneshwar05/ritual"><img src="assets/ritual-journey.webp" width="1120" height="700" alt="Ritual for macOS showing a monument built from habit check-ins"></a>
-          <figcaption>Ritual for macOS · A habit’s progress in the Journey view</figcaption>
+  <main id="main">
+    <section class="cover" id="top" aria-labelledby="name">
+      <div class="wrap cover-grid">
+        <div class="paperback-title">
+          <p class="place">Bengaluru, India</p>
+          <h1 id="name">Dhiyaneshwar G.</h1>
+        </div>
+        <div class="cover-copy">
+          <p class="role">Forward Deployed Engineer at DevRev</p>
+          <p class="intro">I build AI agents that connect to real systems, and write evals to see where those workflows break.</p>
+          <div class="cover-links"><a href="https://github.com/Dhiyaneshwar05">GitHub</a><a href="https://www.linkedin.com/in/dhiyanesh-g/">LinkedIn</a></div>
+        </div>
+        <figure class="cover-art">
+          <div class="paperback-print" role="img" aria-label="An archival print of Bengaluru’s Cypress Garden, tinted oxblood with a halftone texture"></div>
+          <figcaption><a href="https://commons.wikimedia.org/wiki/File:East_view_of_Bangalore,_with_the_cypress_garden,_from_a_pagoda..jpg">The Cypress Garden, Bengaluru</a><span>After James Hunter · 1804</span></figcaption>
         </figure>
       </div>
     </section>
 
-    <section class="panel" id="journey" role="tabpanel" aria-labelledby="tab-journey" hidden>
-      <div class="journey-spread">
-        <ol class="route" aria-label="Experience and education by city">
-          <li class="vellore"><button class="stop" type="button" aria-pressed="false" aria-controls="stop-vit"><span class="stop-name">VIT</span><span class="city">Vellore</span></button></li>
-          <li class="chennai"><button class="stop" type="button" aria-pressed="false" aria-controls="stop-nokia"><span class="stop-name">Nokia</span><span class="city">Chennai</span></button></li>
-          <li class="bengaluru"><button class="stop" type="button" aria-pressed="true" aria-controls="stop-devrev"><span class="stop-name">DevRev</span><span class="city">Bengaluru</span></button></li>
-        </ol>
-        <div>
-          <article class="journey-entry" id="stop-vit" hidden>
-            <p class="date">2019–2024</p>
-            <h2>Vellore Institute of Technology</h2>
-            <p class="detail">Integrated M.Tech in Computer Science, specializing in Data Science.</p>
+    <section class="projects" id="work" aria-labelledby="projects-heading">
+      <div class="wrap section-grid">
+        <h2 id="projects-heading">Side projects</h2>
+        <ul class="project-list">
+          <li><a href="https://github.com/Dhiyaneshwar05/claude-deck"><strong>claude-deck</strong><span>A macOS app that finds Claude Code sessions across editors and terminals. It groups them by project and surfaces their status, recent activity, and token usage.</span></a></li>
+          <li><a href="https://github.com/Dhiyaneshwar05/ritual"><strong>Ritual</strong><span>A Mac app for habits and tasks. Each check-in adds a piece to a monument, so progress has a shape you can come back to.</span></a></li>
+          <li><a href="https://github.com/Dhiyaneshwar05/jobclip"><strong>jobclip</strong><span>A browser extension that saves job postings to Google Sheets in one click, where they’re easy to sort and revisit.</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="wrap section-grid journey" id="journey" aria-labelledby="journey-heading">
+      <div class="journey-index">
+        <h2 id="journey-heading">Journey</h2>
+        <nav aria-label="Journey milestones">
+          <ol>
+            <li><a href="#devrev" aria-current="location">DevRev</a></li>
+            <li><a href="#nokia">Nokia</a></li>
+            <li><a href="#ineuron">iNeuron.ai</a></li>
+            <li><a href="#vit">VIT</a></li>
+          </ol>
+        </nav>
+      </div>
+      <div class="chapters">
+        <article id="devrev">
+          <p class="dateline"><time datetime="2024-11">Nov 2024</time>–present · Bengaluru</p>
+          <h3>DevRev</h3>
+          <p class="chapter-role">Forward Deployed Engineer</p>
+          <p>I work with customer teams to turn multi-system workflows into agents. My work spans tool integrations, validation, and evals that check how an agent handles an entire conversation.</p>
+        </article>
+        <article id="nokia">
+          <p class="dateline"><time datetime="2023-08">Aug 2023</time>–<time datetime="2024-05">May 2024</time> · Chennai</p>
+          <h3>Nokia</h3>
+          <p class="chapter-role">R&amp;D Software Engineering Intern</p>
+          <p>I wrote Python to automate deployment steps and built early prototypes that used retrieval to give language models context from internal documentation.</p>
+        </article>
+        <article id="ineuron">
+          <p class="dateline"><time datetime="2023-01">Jan</time>–<time datetime="2023-03">Mar 2023</time></p>
+          <h3>iNeuron.ai</h3>
+          <p class="chapter-role">Machine Learning Intern</p>
+          <p>I prepared user-behavior data for supervised learning and used cross-validation to compare and tune models.</p>
+        </article>
+        <article id="vit">
+          <p class="dateline"><time datetime="2019">2019</time>–<time datetime="2024">2024</time> · Vellore</p>
+          <h3>Vellore Institute of Technology</h3>
+          <p class="chapter-role">Integrated M.Tech in Computer Science</p>
+          <p>I specialized in data science.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section-grid practice" id="research" aria-labelledby="research-heading">
+      <h2 id="research-heading">Work in practice</h2>
+      <div class="practice-list">
+        <article>
+          <h3>Testing the whole conversation</h3>
+          <p>I’ve worked on evals that replay multi-turn conversations and check which tools the agent chose and whether it used the available evidence.</p>
+        </article>
+        <article>
+          <h3>From a request to a workflow</h3>
+          <p>I’ve prototyped turning a plain-language request into workflow steps. One design choice was to revise just the affected steps when a user changes the request.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="writing" id="writing" aria-labelledby="writing-heading">
+      <div class="wrap section-grid">
+        <h2 id="writing-heading">Writing</h2>
+        <div class="writing-list">
+          <article>
+            <p class="dateline">Medium · <time datetime="2024">2024</time></p>
+            <h3><a href="https://medium.com/@dhiyanu/riding-the-wave-of-generative-ai-navigating-collaboration-innovation-and-the-future-72f41212630f">Riding the Wave of Generative AI</a></h3>
+            <p>An early piece on how generative AI might change the way we collaborate.</p>
           </article>
-          <article class="journey-entry" id="stop-nokia" hidden>
-            <p class="date">Aug 2023–May 2024</p>
-            <h2>Nokia · R&amp;D software engineering intern</h2>
-            <p class="detail">Built Python automation and prototyped retrieval-augmented tooling.</p>
-          </article>
-          <article class="journey-entry" id="stop-devrev">
-            <p class="date">Nov 2024–present</p>
-            <h2>DevRev · Forward Deployed Engineer</h2>
-            <p class="detail">Build and deploy AI agents with customer teams. Work across tool integrations, workflow reliability, and evals before rollout.</p>
+          <article>
+            <p class="dateline">LinkedIn</p>
+            <h3><a href="https://in.linkedin.com/in/dhiyanesh-g">Posts and updates</a></h3>
+            <p>Notes from shipping applied AI with customer teams.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="panel" id="writing" role="tabpanel" aria-labelledby="tab-writing" hidden>
-      <a class="story" href="https://medium.com/@dhiyanu/riding-the-wave-of-generative-ai-navigating-collaboration-innovation-and-the-future-72f41212630f">
-        <p class="date"><time datetime="2024-05-24">May 24, 2024</time> · Medium</p>
-        <h2>Riding the Wave of Generative AI, LLMs: Navigating Collaboration, Innovation, and the Future</h2>
-      </a>
-      <a class="story" href="https://in.linkedin.com/in/dhiyanesh-g">
-        <p class="date">LinkedIn</p>
-        <h2>Posts and updates</h2>
-        <p>Short updates on applied AI and my work at DevRev.</p>
-      </a>
-    </section>
-
-    <section class="panel" id="skills" role="tabpanel" aria-labelledby="tab-skills" hidden>
-      <dl class="compact-list">
-        <div><dt>AI agents</dt><dd>Agent harnesses, tool calling, MCP, and multi-step workflows.</dd></div>
-        <div><dt>Evaluation and retrieval</dt><dd>Multi-turn evals, LLM-as-judge, and retrieval-augmented generation.</dd></div>
-        <div><dt>Development</dt><dd>Python, SQL, TypeScript, FastAPI, Docker, and AWS Bedrock.</dd></div>
-      </dl>
-    </section>
-
-    <section class="panel" id="research" role="tabpanel" aria-labelledby="tab-research" hidden>
-      <dl class="compact-list">
-        <div><dt>Coding agent harnesses</dt><dd>Explored how editors and terminals expose session events while planning claude-deck.</dd></div>
-        <div><dt>Agent evals</dt><dd>Exploring how to test tool choices and outcomes across a whole conversation.</dd></div>
-      </dl>
-    </section>
-
-    <section class="panel" id="certifications" role="tabpanel" aria-labelledby="tab-certifications" hidden>
-      <dl class="compact-list">
-        <div><dt>Machine Learning Specialization</dt><dd>Stanford Online · Coursera</dd></div>
-        <div><dt>Google Data Analytics</dt><dd>Google · Coursera</dd></div>
-        <div><dt>OCI Generative AI Certified Professional</dt><dd>Oracle · Issued July 2024, expired July 2026</dd></div>
-      </dl>
-    </section>
-
-    <section class="panel contact" id="contact" role="tabpanel" aria-labelledby="tab-contact" hidden>
-      <p>For work or collaborations, <a href="https://www.linkedin.com/in/dhiyanesh-g/">reach me on LinkedIn</a>.</p>
+    <section class="wrap section-grid notes" id="notes" aria-labelledby="notes-heading">
+      <h2 id="notes-heading">Notes</h2>
+      <div class="details">
+        <details><summary>Research &amp; experiments</summary>
+          <p>I’ve been exploring how coding-agent harnesses expose session state to other tools.</p>
+          <p>I’ve also prototyped ways to turn documents into structured records and link generated answers back to their sources.</p>
+        </details>
+        <details><summary>Tools I work with</summary>
+          <p>Python, TypeScript, and SQL. Tool calling, MCP, retrieval, and multi-turn evals.</p>
+        </details>
+        <details><summary>Certifications</summary>
+          <ul><li>Machine Learning Specialization · Stanford Online, Coursera</li><li>Google Data Analytics · Coursera</li></ul>
+        </details>
+      </div>
     </section>
   </main>
-
+  <footer class="footer" id="contact">
+    <div class="wrap bar"><span>Dhiyaneshwar G.</span><nav aria-label="Contact and plain text"><a href="https://www.linkedin.com/in/dhiyanesh-g/">Get in touch</a><a href="https://github.com/Dhiyaneshwar05">GitHub</a><a href="llms.txt">llms.txt</a></nav></div>
+  </footer>
   <script>
-    const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
-    const stops = Array.from(document.querySelectorAll('.stop'));
-
-    function selectTab(tab) {
-      for (const item of tabs) {
-        const selected = item === tab;
-        item.setAttribute('aria-selected', selected);
-        item.tabIndex = selected ? 0 : -1;
-        document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+    const milestones = Array.from(document.querySelectorAll('.journey-index a'));
+    const chapters = milestones.map((link) => document.getElementById(link.hash.slice(1)));
+    const updateJourney = () => {
+      const readingLine = Math.min(150, window.innerHeight * 0.22);
+      const active = chapters.findLastIndex((chapter) => chapter.getBoundingClientRect().top <= readingLine);
+      for (const [index, link] of milestones.entries()) {
+        if (index === Math.max(0, active)) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
       }
-    }
-
-    function openTab(tab) {
-      const hash = '#' + tab.getAttribute('aria-controls');
-      if (location.hash !== hash) history.pushState(null, '', hash);
-      selectTab(tab);
-    }
-
-    function restoreTab() {
-      const panel = location.hash.slice(1);
-      selectTab(tabs.find((tab) => tab.getAttribute('aria-controls') === panel) || tabs[0]);
-    }
-
-    tabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => openTab(tab));
-      tab.addEventListener('keydown', (event) => {
-        const destinations = {
-          ArrowRight: (index + 1) % tabs.length,
-          ArrowLeft: (index + tabs.length - 1) % tabs.length,
-          Home: 0,
-          End: tabs.length - 1
-        };
-        if (!Object.hasOwn(destinations, event.key)) return;
-        event.preventDefault();
-        const next = tabs[destinations[event.key]];
-        openTab(next);
-        next.focus();
+    };
+    let scheduled = false;
+    function queueJourneyUpdate() {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(() => {
+        scheduled = false;
+        updateJourney();
       });
-    });
-
-    stops.forEach((stop) => {
-      stop.addEventListener('click', () => {
-        for (const item of stops) {
-          const selected = item === stop;
-          item.setAttribute('aria-pressed', selected);
-          document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
-        }
-      });
-    });
-
-    window.addEventListener('hashchange', restoreTab);
-    restoreTab();
+    }
+    window.addEventListener('scroll', queueJourneyUpdate, { passive: true });
+    window.addEventListener('resize', queueJourneyUpdate);
+    window.addEventListener('pageshow', queueJourneyUpdate);
+    queueJourneyUpdate();
   </script>
 </body>
 </html>
