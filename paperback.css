@@ -75,3 +75,37 @@
   .paperback .cover h1 { font-size: clamp(2.25rem, 10.5vw, 4.8rem); }
   .paperback .role { max-width: none; }
 }
+
+.paperback .masthead {
+  background: var(--gold);
+  color: var(--ink);
+  border-bottom: 1px solid #43231365;
+  font-family: var(--sans);
+}
+.paperback .masthead .signature {
+  font: 1000 2rem/.95 var(--sans);
+  letter-spacing: -.085em;
+  color: var(--oxblood);
+}
+.paperback .masthead .sections a,
+.paperback .masthead .view a {
+  font-family: inherit;
+  font-weight: 700;
+}
+.paperback .masthead .view {
+  border-color: #70241c9a;
+  border-radius: 0;
+}
+.paperback .masthead .view [aria-current] {
+  background: var(--oxblood);
+  color: var(--cream);
+}
+.paperback .agent-view h1 {
+  font-family: var(--sans);
+  font-weight: 900;
+  letter-spacing: -.065em;
+  color: var(--oxblood);
+}
+@media (max-width: 30rem) {
+  .paperback .masthead .sections { border-top-color: #43231365; }
+}
